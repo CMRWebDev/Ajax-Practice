@@ -9,7 +9,15 @@ $(function(){
 	
 
 function getRequest(searchTerm){
-	$.getJSON('http://www.omdbapi.com/?s=' + searchTerm + '&r=json', function(data){
+
+
+	var params = {
+		s: searchTerm,
+		r: 'json'
+	};
+	url = 'http://www.omdbapi.com';
+
+	$.getJSON(url, params, function(data){
 		showResults(data.Search);
 	});
 }
